@@ -1,14 +1,13 @@
 #include "ros/ros.h"
 #include "geometry_msgs/Twist.h"
 #include "std_msgs/Float32MultiArray.h"
+#include "rov/cmd_thruster.h"
 #include <cmath>
 
-class Throttle_mixer{
-    public:
+struct Throttle_mixer{
         Throttle_mixer();
-    private:
+        // void cmd_velCallback(const geometry_msgs::Twist::ConstPtr& msg);
         void cmd_velCallback(const geometry_msgs::Twist::ConstPtr& msg);
-
         ros::NodeHandle n;
 
         ros::Publisher cmd_thruster_pub;
@@ -39,17 +38,19 @@ Throttle_mixer::Throttle_mixer(){
     for(int i = 0; i < 6; i++){
         output[i]=0;
     }
-    cmd_thruster_pub = n.advertise<std_msgs::Float32MultiArray>("cmd_thruster", 1);
+    cmd_thruster_pub = n.advertise<rov::cmd_thruster>("cmd_thruster", 1);
+    // cmd_thruster_pub = n.advertise<std_msgs::Float32MultiArray>("cmd_thruster", 1);
     sub = n.subscribe<geometry_msgs::Twist>("cmd_vel", 10, &Throttle_mixer::cmd_velCallback, this);
 }
 void Throttle_mixer::cmd_velCallback(const geometry_msgs::Twist::ConstPtr& twist_msg){
-    std_msgs::Float32MultiArray thruster;
+    //std_msgs::Float32MultiArray msg;
+    rov::cmd_thruster msg;
     // set up dimensions
-    thruster.layout.dim.push_back(std_msgs::MultiArrayDimension());
-    // thruster.layout.dim[0].size = 6;
-    // thruster.layout.dim[0].stride = 6;
-    thruster.layout.dim[0].label = "thruster values";
-    thruster.data.clear();
+    //msg.layout.dim.push_back(std_msgs::MultiArrayDimension());
+    //msg.layout.dim[0].size = 6;
+    //msg.layout.dim[0].stride = 6;
+    //msg.layout.dim[0].label = "thruster values";
+    msg.thruster_val.clear();
     for(int i =0; i<6; i++){
         output[i] = twist_msg->linear.x*forward[i] + twist_msg->linear.y*right[i] + 
         twist_msg->linear.z*up[i] + twist_msg->angular.z*turn[i];
@@ -58,7 +59,7 @@ void Throttle_mixer::cmd_velCallback(const geometry_msgs::Twist::ConstPtr& twist
         ceil(abs(twist_msg->linear.y*right[i])) + abs(up[i]) + 
         ceil(abs(twist_msg->angular.z*turn[i])));      
         }
-        thruster.data.push_back(output[i]);
+        msg.thruster_val.push_back(output[i]);
     }
     cmd_thruster_pub.publish(thruster);
 }
