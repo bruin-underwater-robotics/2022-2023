@@ -11,10 +11,8 @@ find_package(catkin REQUIRED COMPONENTS
   joy
   roscpp
   rospy
-  rosserial_arduino
   std_msgs
   teleop_twist_joy
-  teleop_twist_keyboard
   message_generation
   sensor_msgs
 )
