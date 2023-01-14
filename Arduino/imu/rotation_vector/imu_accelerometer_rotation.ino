@@ -26,7 +26,7 @@ void setup(void) {
   bno08x.begin_I2C();
 
   bno08x.enableReport(SH2_GAME_ROTATION_VECTOR);
-  bno08x.enableReport(SH2_ACCELEROMETER)
+  bno08x.enableReport(SH2_ACCELEROMETER);
 
   nh.initNode();
   nh.advertise(rotationPublisher);
