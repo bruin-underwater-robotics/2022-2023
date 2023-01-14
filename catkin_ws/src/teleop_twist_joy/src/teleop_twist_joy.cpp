@@ -154,6 +154,7 @@ void TeleopTwistJoy::Impl::sendCmdVelMsg(const sensor_msgs::Joy::ConstPtr& joy_m
   cmd_vel_msg.linear.x = joy_msg->axes[4];
   cmd_vel_msg.linear.y = joy_msg->axes[3];
   cmd_vel_msg.linear.z = joy_msg->axes[1];
+  cmd_vel_msg.angular.z = joy_msg->axes[0];
 
   cmd_vel_pub.publish(cmd_vel_msg);
   sent_disable_msg = false;
