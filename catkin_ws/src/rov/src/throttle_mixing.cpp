@@ -24,10 +24,11 @@ struct Throttle_mixer{
         |    |
         4----3
         */
-        const int forward[6] = {1, 1, -1, -1, 0, 0};
-        const int right[6] = {1, -1, 1, -1, 0, 0};
-        const int up[6] = {0, 0, 0, 0, 1, 1};
-        const int turn[6] = {1, -1, -1, 1, 0, 0};
+        const int forward[6] = {1, 1, 0, 0, -1, -1};
+        const int right[6] = {1, -1, 0, 0, 1, -1};
+        const int up[6] = {0, 0, 1, -1, 0, 0};
+        //const int turn[6] = {1, -1, -1, 1, 0, 0};
+        const int turn = {0, 0, 0, 0, 0, 0};
         float output[6];
         bool val[17];
 };
