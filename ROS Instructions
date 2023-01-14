@@ -1,22 +1,4 @@
 Download: 
-  CMakeLists.txt
-  cmd_thruster.msg
-  package.xml
-  rov.launch
-  throttle_mixing.cpp
-  Thruster_Control.ino
+Everything in catkin_ws
   
- 1. Make your own catkin_ws (http://wiki.ros.org/ROS/Tutorials/InstallingandConfiguringROSEnvironment)
- 2. Make your own package named rov (http://wiki.ros.org/ROS/Tutorials/CreatingPackage)
- 
- INSIDE ROV
- 
- 3. Create a folder named msgs
-  3a. Put cmd_thruster.msg inside
- 4. Replace the default CMakeLists.txt and package.xml in rov with the downloaded ones
- 5. Create a folder named src
-  5a. Put throttle_mixing.cpp inside
- 6. Create a folder called launch
-  6a. Put rov.launch inside
- 7. Build the ws
- 8. Follow these instructions to create library files for our custom messages (http://wiki.ros.org/rosserial_arduino/Tutorials/Arduino%20IDE%20Setup)
+ 1. cd into your catkin_ws and run catkin_make(http://wiki.ros.org/ROS/Tutorials/InstallingandConfiguringROSEnvironment)
