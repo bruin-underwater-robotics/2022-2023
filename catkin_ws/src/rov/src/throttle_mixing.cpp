@@ -20,15 +20,14 @@ struct Throttle_mixer{
         /*
         1----2
         |    |
-        5    6
+        3    4
         |    |
-        4----3
+        5----6
         */
-        const int forward[6] = {1, 1, 0, 0, -1, -1};
-        const int right[6] = {1, -1, 0, 0, 1, -1};
+        const int forward[6] = {-1, -1, 0, 0, -1, -1};
+        const int right[6] = {1, -1, 0, 0, -1, 1};
         const int up[6] = {0, 0, 1, -1, 0, 0};
-        //const int turn[6] = {1, -1, -1, 1, 0, 0};
-        const int turn = {0, 0, 0, 0, 0, 0};
+        const int turn[6] = {1, -1, 0, 0, 1, -1};
         float output[6];
         bool val[17];
 };
