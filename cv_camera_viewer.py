@@ -3,6 +3,7 @@ import rospy
 from sensor_msgs.msg import Image
 import numpy as np
 from cv_bridge import CvBridge
+import sys 
 
 bridge = CvBridge()
 
@@ -13,7 +14,7 @@ def callback(image):
 
 def listener():
         rospy.init_node("test", anonymous=True)
-        rospy.Subscriber("cv_camera/image_raw", Image, callback)
+        rospy.Subscriber(sys.argv[1], Image, callback)
         rospy.spin()
 
 if __name__ == '__main__':
