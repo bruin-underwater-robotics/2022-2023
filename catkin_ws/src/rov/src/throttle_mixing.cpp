@@ -28,8 +28,9 @@ struct Throttle_mixer{
         const int right[6] = {1, -1, 0, 0, -1, 1};
         const int up[6] = {0, 0, 1, -1, 0, 0};
         const int turn[6] = {1, -1, 0, 0, 1, -1};
-        float output[6];
-        bool val[17];
+        float output[6] = { 0 };
+        bool val[17] = { 0 };
+        bool prev_state[17] = { 0 };
 };
 
 int main(int argc, char **argv){
@@ -52,7 +53,13 @@ Throttle_mixer::Throttle_mixer(){
 void Throttle_mixer::joy_callBack(const sensor_msgs::Joy::ConstPtr& joy_msg){
     msg.buttons.clear();
     for(int i = 0; i<17; i++){
-        val[i] = joy_msg->buttons[i];
+        if(joy_msg->buttons[i] == 0){
+            prev_state[i] = true;
+        }
+        else if(joy_msg->buttons[i] == 1 && prev_state[i] == true){
+            prev_state[i] = false;
+            val[i] = 1 - val[i];
+        }
         msg.buttons.push_back(val[i]);
     }
     cmd_thruster_pub.publish(msg);

@@ -11,4 +11,7 @@
 	<param name="baud" type="int" value="57600" />
 	</node>
 	-->
+<!-- rqt GUI -->
+<node name="rqt_gui" pkg="rqt_gui" type="rqt_gui" output = "screen"
+args = "--perspective-file $(find rov)/rqt_config/Test.perspective"/>
 </launch>
