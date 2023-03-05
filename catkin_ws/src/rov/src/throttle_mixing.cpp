@@ -18,16 +18,17 @@ struct Throttle_mixer{
         //motors listed in order of top left clockwise
         //up-down motors are in the middle
         /*
-        1----2
+        1----5
         |    |
-        3    4
+        2    4
         |    |
-        5----6
+        3----6
         */
-        const int forward[6] = {-1, -1, 0, 0, -1, -1};
-        const int right[6] = {1, -1, 0, 0, -1, 1};
-        const int up[6] = {0, 0, 1, -1, 0, 0};
-        const int turn[6] = {1, -1, 0, 0, 1, -1};
+        const int forward[6] = {1, 0, 1, 0, 1, 1};
+        const int right[6] = {-1, 0, 1, 0, 1, -1};
+        const int up[6] = {0, -1, 0, 1, 0, 0};
+        const int yaw[6] = {-1, 0, -1, 0, 1, 1};
+        const int roll[6] = {0, -1, 0, -1, 0, 0};
         float output[6] = { 0 };
         bool val[17] = { 0 };
         bool prev_state[17] = { 0 };
@@ -36,7 +37,9 @@ struct Throttle_mixer{
 int main(int argc, char **argv){
     ros::init(argc, argv, "throttle_mixer");
     Throttle_mixer t;
-    t.run();
+    while(ros::ok()){
+        ros::spinOnce();
+    }
 }
 Throttle_mixer::Throttle_mixer(){
     for(int i = 0; i < 6; i++){
@@ -70,19 +73,13 @@ void Throttle_mixer::cmd_velCallback(const geometry_msgs::Twist::ConstPtr& twist
     msg.thruster_val.clear();
     for(int i =0; i<6; i++){
         output[i] = twist_msg->linear.x*forward[i] + twist_msg->linear.y*right[i] + 
-        twist_msg->linear.z*up[i] + twist_msg->angular.z*turn[i];
+        twist_msg->linear.z*up[i] + twist_msg->angular.z*yaw[i] + twist_msg->angular.x*roll[i];
         if(output[i] != 0){
-        output[i] = output[i]/(ceil(abs(twist_msg->linear.x*forward[i])) + 
-        ceil(abs(twist_msg->linear.y*right[i])) + abs(up[i]) + 
-        ceil(abs(twist_msg->angular.z*turn[i])));      
+        output[i] = 0.3 * output[i]/(ceil(abs(twist_msg->linear.x*forward[i])) + 
+        ceil(abs(twist_msg->linear.y*right[i])) + ceil(abs(up[i])) + 
+        ceil(abs(twist_msg->angular.z*yaw[i])) + ceil(abs(twist_msg->angular.x*roll[i])));      
         }
         msg.thruster_val.push_back(output[i]);
     }
     cmd_thruster_pub.publish(msg);
-}
-
-void Throttle_mixer::run(){
-    while(true){
-        ros::spinOnce();
-    }
 }
