@@ -31,6 +31,7 @@
       <param name="topic_from_controller" type="str" value="controlEffortAngularZ" />
       <param name="index" type="int" value="5" />
       </node>
+<node pkg="pid" type="PIDCombiner" name="combiner" output="screen" />
 -->
 
 <!-- Arduino Node-->
