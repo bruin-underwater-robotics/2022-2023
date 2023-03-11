@@ -8,9 +8,8 @@ struct Throttle_mixer{
         Throttle_mixer();
         void cmd_velCallback(const geometry_msgs::Twist::ConstPtr& joy_msg);
         void joy_callBack(const sensor_msgs::Joy::ConstPtr& twist_msg);
-        void run();
         rov::cmd_thruster msg;
-        ros::NodeHandle n;
+        ros::NodeHandle nh;
         ros::Publisher cmd_thruster_pub;
         ros::Subscriber sub;
         ros::Subscriber joy_sub;
@@ -34,13 +33,6 @@ struct Throttle_mixer{
         bool prev_state[17] = { 0 };
 };
 
-int main(int argc, char **argv){
-    ros::init(argc, argv, "throttle_mixer");
-    Throttle_mixer t;
-    while(ros::ok()){
-        ros::spinOnce();
-    }
-}
 Throttle_mixer::Throttle_mixer(){
     for(int i = 0; i < 6; i++){
         output[i]=0;
@@ -48,9 +40,9 @@ Throttle_mixer::Throttle_mixer(){
         for(int i = 0; i < 17; i++){
         val[i]=0;
     }
-    cmd_thruster_pub = n.advertise<rov::cmd_thruster>("cmd_thruster", 1);
-    sub = n.subscribe<geometry_msgs::Twist>("cmd_vel", 10, &Throttle_mixer::cmd_velCallback, this);
-    joy_sub = n.subscribe<sensor_msgs::Joy>("joy", 10, &Throttle_mixer::joy_callBack, this);
+    cmd_thruster_pub = nh.advertise<rov::cmd_thruster>("cmd_thruster", 1);
+    sub = nh.subscribe<geometry_msgs::Twist>("cmd_vel", 10, &Throttle_mixer::cmd_velCallback, this);
+    joy_sub = nh.subscribe<sensor_msgs::Joy>("joy", 10, &Throttle_mixer::joy_callBack, this);
 }
 
 void Throttle_mixer::joy_callBack(const sensor_msgs::Joy::ConstPtr& joy_msg){
@@ -82,4 +74,12 @@ void Throttle_mixer::cmd_velCallback(const geometry_msgs::Twist::ConstPtr& twist
         msg.thruster_val.push_back(output[i]);
     }
     cmd_thruster_pub.publish(msg);
+}
+
+int main(int argc, char **argv){
+    ros::init(argc, argv, "throttle_mixer");
+    Throttle_mixer t;
+    while(ros::ok()){
+        ros::spinOnce();
+    }
 }

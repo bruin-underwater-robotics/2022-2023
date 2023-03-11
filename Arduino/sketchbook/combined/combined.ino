@@ -6,7 +6,7 @@
 #include <ros.h>
 //ROS message files
 #include <rov/cmd_thruster.h>
-#include <geometry_msgs/Twist.h>
+#include <geometry_msgs/Pose.h>
 #include <std_msgs/Int8.h>
 #include <Adafruit_BNO08x.h>
 
@@ -65,9 +65,9 @@ void msg_Cb( const rov::cmd_thruster &msg){
 //  return(tempF);
 //}
 
-geometry_msgs::Twist twist_msg;
+geometry_msgs::Pose pose_msg;
 //std_msgs::Int8 temp_msg;
-ros::Publisher rotationPublisher("imu_output", &twist_msg);
+ros::Publisher rotationPublisher("imu_output", &pose_msg);
 ros::Subscriber<rov::cmd_thruster> sub("cmd_thruster", &msg_Cb );
 //ros::Publisher tempPublisher("temperature", &temp_msg);
 
@@ -79,7 +79,7 @@ void setup()
     while (1) { delay(10); }
   }
   nh.getHardware()->setBaud(115200);
-  bno08x.enableReport(SH2_GAME_ROTATION_VECTOR);
+  bno08x.enableReport(SH2_GYRO_INTEGRATED_RV);
   bno08x.enableReport(SH2_ACCELEROMETER);
 
   //Temp Sensor Setup
@@ -113,21 +113,22 @@ void loop()
     return;
   }
   switch (sensorValue.sensorId) {   
-    case SH2_GAME_ROTATION_VECTOR:
-      twist_msg.angular.x = sensorValue.un.gameRotationVector.i;
-      twist_msg.angular.y = sensorValue.un.gameRotationVector.j;
-      twist_msg.angular.z = sensorValue.un.gameRotationVector.k;
+    case SH2_GYRO_INTEGRATED_RV:
+      pose_msg.orientation.x = sensorValue.un.gyroIntegratedRV.i;
+      pose_msg.orientation.y = sensorValue.un.gyroIntegratedRV.j;
+      pose_msg.orientation.z = sensorValue.un.gyroIntegratedRV.k;
+      pose_msg.orientation.w = sensorValue.un.gyroIntegratedRV.real;
       break;
     case SH2_ACCELEROMETER:
-      twist_msg.linear.x = sensorValue.un.accelerometer.x;
-      twist_msg.linear.y = sensorValue.un.accelerometer.y;
-      twist_msg.linear.z = sensorValue.un.accelerometer.z;
+      pose_msg.position.x = sensorValue.un.accelerometer.x;
+      pose_msg.position.y = sensorValue.un.accelerometer.y;
+      pose_msg.position.z = sensorValue.un.accelerometer.z;
       break;
   }
 //  sensors.requestTemperatures(); // Send the command to get temperatures
     // It responds almost immediately. Let's print out the data
 //  temp_msg.data = printTemperature(insideThermometer);
 //  tempPublisher.publish(&temp_msg);
-  rotationPublisher.publish( &twist_msg ); 
+  rotationPublisher.publish( &pose_msg ); 
   nh.spinOnce();
 }
