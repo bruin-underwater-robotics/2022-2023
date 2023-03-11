@@ -4,6 +4,35 @@
 <!-- Thruster Node-->	
 <node pkg="rov" type="throttle_mixing" name="throttle_mixing" output="screen" />
 
+<!-- PID Nodes-->
+<!-- All nodes read from topics state and setpoint (one geometry_msgs::Twist per topic). -->
+<!--
+<node pkg="pid" type="controller" name="pidLinearX" output="screen">
+      <param name="topic_from_controller" type="str" value="controlEffortLinearX" />
+      <param name="index" type="int" value="0" />
+      </node>
+<node pkg="pid" type="controller" name="pidLinearY" output="screen">
+      <param name="topic_from_controller" type="str" value="controlEffortLinearY" />
+      <param name="index" type="int" value="1" />
+      </node>
+<node pkg="pid" type="controller" name="pidLinearZ" output="screen">
+      <param name="topic_from_controller" type="str" value="controlEffortLinearZ" />
+      <param name="index" type="int" value="2" />
+      </node>
+<node pkg="pid" type="controller" name="pidAngularX" output="screen">
+      <param name="topic_from_controller" type="str" value="controlEffortAngularX" />
+      <param name="index" type="int" value="3" />
+      </node>
+<node pkg="pid" type="controller" name="pidAngularY" output="screen">
+      <param name="topic_from_controller" type="str" value="controlEffortAngularY" />
+      <param name="index" type="int" value="4" />
+      </node>
+<node pkg="pid" type="controller" name="pidAngularZ" output="screen">
+      <param name="topic_from_controller" type="str" value="controlEffortAngularZ" />
+      <param name="index" type="int" value="5" />
+      </node>
+-->
+
 <!-- Arduino Node-->
 <!--
 <node pkg="rosserial_python" type="serial_node.py" name="serial_node" output="screen" >
