@@ -1,0 +1,17 @@
+Determining if the C compiler works failed with the following output:
+Change Dir: /home/isopodin-time/catkin_ws/src/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_1156f/fast && /usr/bin/make -f CMakeFiles/cmTC_1156f.dir/build.make CMakeFiles/cmTC_1156f.dir/build
+make[1]: Entering directory '/home/isopodin-time/catkin_ws/src/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_1156f.dir/testCCompiler.c.o
+/usr/bin/avr-gcc    -o CMakeFiles/cmTC_1156f.dir/testCCompiler.c.o   -c /home/isopodin-time/catkin_ws/src/build/CMakeFiles/CMakeTmp/testCCompiler.c
+Linking C executable cmTC_1156f
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_1156f.dir/link.txt --verbose=1
+/usr/bin/avr-gcc      -rdynamic CMakeFiles/cmTC_1156f.dir/testCCompiler.c.o  -o cmTC_1156f 
+avr-gcc: error: unrecognized command line option ‘-rdynamic’
+make[1]: *** [CMakeFiles/cmTC_1156f.dir/build.make:87: cmTC_1156f] Error 1
+make[1]: Leaving directory '/home/isopodin-time/catkin_ws/src/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_1156f/fast] Error 2
+
+
+

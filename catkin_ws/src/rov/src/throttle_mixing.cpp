@@ -41,8 +41,8 @@ Throttle_mixer::Throttle_mixer(){
         val[i]=0;
     }
     cmd_thruster_pub = nh.advertise<rov::cmd_thruster>("cmd_thruster", 1);
-    sub = nh.subscribe<geometry_msgs::Twist>("cmd_vel", 10, &Throttle_mixer::cmd_velCallback, this);
-    joy_sub = nh.subscribe<sensor_msgs::Joy>("joy", 10, &Throttle_mixer::joy_callBack, this);
+    sub = nh.subscribe<geometry_msgs::Twist>("cmd_vel", 1, &Throttle_mixer::cmd_velCallback, this);
+    joy_sub = nh.subscribe<sensor_msgs::Joy>("joy", 1, &Throttle_mixer::joy_callBack, this);
 }
 
 void Throttle_mixer::joy_callBack(const sensor_msgs::Joy::ConstPtr& joy_msg){
@@ -63,13 +63,12 @@ void Throttle_mixer::joy_callBack(const sensor_msgs::Joy::ConstPtr& joy_msg){
 void Throttle_mixer::cmd_velCallback(const geometry_msgs::Twist::ConstPtr& twist_msg){
     
     msg.thruster_val.clear();
+    double multiplier = 0;
     for(int i =0; i<6; i++){
         output[i] = twist_msg->linear.x*forward[i] + twist_msg->linear.y*right[i] + 
         twist_msg->linear.z*up[i] + twist_msg->angular.z*yaw[i] + twist_msg->angular.x*roll[i];
         if(output[i] != 0){
-        output[i] = 0.3 * output[i]/(ceil(abs(twist_msg->linear.x*forward[i])) + 
-        ceil(abs(twist_msg->linear.y*right[i])) + ceil(abs(up[i])) + 
-        ceil(abs(twist_msg->angular.z*yaw[i])) + ceil(abs(twist_msg->angular.x*roll[i])));      
+            output[i] = 0.5*output[i]/(ceil(abs(twist_msg->linear.x*forward[i])) + ceil(abs(twist_msg->linear.y*right[i])) + ceil(abs(up[i])) + ceil(abs(twist_msg->angular.z*yaw[i])) + ceil(abs(twist_msg->angular.x*roll[i])));      
         }
         msg.thruster_val.push_back(output[i]);
     }
