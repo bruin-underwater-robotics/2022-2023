@@ -9,7 +9,7 @@ bridge = CvBridge()
 
 def callback(image):
         cv_image = bridge.imgmsg_to_cv2(image, desired_encoding='bgr8')
-        cv2.imshow("test", cv_image)
+        cv2.imshow("test", cv2.resize(cv_image, (192, 144)))
         cv2.waitKey(1)
 
 def listener():
