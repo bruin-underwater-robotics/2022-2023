@@ -14,6 +14,7 @@ struct Throttle_mixer{
         ros::Subscriber sub;
         ros::Subscriber joy_sub;
 
+
         //motors listed in order of top left clockwise
         //up-down motors are in the middle
         /*
@@ -31,6 +32,7 @@ struct Throttle_mixer{
         float output[6] = { 0 };
         bool val[17] = { 0 };
         bool prev_state[17] = { 0 };
+        double multiplier = 0.5;
 };
 
 Throttle_mixer::Throttle_mixer(){
@@ -54,9 +56,23 @@ void Throttle_mixer::joy_callBack(const sensor_msgs::Joy::ConstPtr& joy_msg){
         else if(joy_msg->buttons[i] == 1 && prev_state[i] == true){
             prev_state[i] = false;
             val[i] = 1 - val[i];
+            
+            if(i == 5){
+                multiplier = multiplier + 0.1;
+                if(multiplier >= 1){
+                    multiplier = 1;
+                }
+            }
+            else if(i == 4){
+                multiplier = multiplier - 0.1;
+                if(multiplier <= 0.1){
+                    multiplier = 0.1;
+                }
+            }
         }
         msg.buttons.push_back(val[i]);
     }
+    msg.multiplier = multiplier;
     cmd_thruster_pub.publish(msg);
 }
 
@@ -68,7 +84,11 @@ void Throttle_mixer::cmd_velCallback(const geometry_msgs::Twist::ConstPtr& twist
         output[i] = twist_msg->linear.x*forward[i] + twist_msg->linear.y*right[i] + 
         twist_msg->linear.z*up[i] + twist_msg->angular.z*yaw[i] + twist_msg->angular.x*roll[i];
         if(output[i] != 0){
+<<<<<<< HEAD
             output[i] = 0.5*output[i]/(ceil(abs(twist_msg->linear.x*forward[i])) + ceil(abs(twist_msg->linear.y*right[i])) + ceil(abs(up[i])) + ceil(abs(twist_msg->angular.z*yaw[i])) + ceil(abs(twist_msg->angular.x*roll[i])));      
+=======
+            output[i] = multiplier*output[i]/(ceil(abs(twist_msg->linear.x*forward[i])) + ceil(abs(twist_msg->linear.y*right[i])) + ceil(abs(up[i])) + ceil(abs(twist_msg->angular.z*yaw[i])) + ceil(abs(twist_msg->angular.x*roll[i])));      
+>>>>>>> 30f331ca93a497eb3843ec7493c898e528ed78f1
         }
         msg.thruster_val.push_back(output[i]);
     }
