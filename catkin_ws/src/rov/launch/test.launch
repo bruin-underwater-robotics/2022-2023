@@ -1,4 +1,20 @@
 <launch>
-<node name="rqt_gui" pkg="rqt_gui" type="rqt_gui" output = "screen"
-args = "--perspective-file $(find rov)/rqt_config/Test.perspective"/>
+    <machine
+        name="pi"
+        address="10.42.0.157"
+        user="pi"
+        password="raspberry"
+        env-loader="~/.bashrc"
+        default="true"
+    />
+
+    <node
+        machine="pi"
+        pkg="rosserial_python" 
+        type="serial_node.py" 
+        name="serial_node" 
+        output="screen">
+        <param name="port" type="string" value="/dev/ttyACM0" />
+        <param name="baud" type="int" value="115200" />
+        </node>
 </launch>

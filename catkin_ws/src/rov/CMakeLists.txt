@@ -14,6 +14,7 @@ find_package(catkin REQUIRED COMPONENTS
   std_msgs
   teleop_twist_joy
   message_generation
+  geometry_msgs
   sensor_msgs
 )
 
@@ -76,6 +77,7 @@ find_package(catkin REQUIRED COMPONENTS
    DEPENDENCIES
    std_msgs
    sensor_msgs
+   geometry_msgs
  )
 
 ################################################
@@ -213,3 +215,15 @@ include_directories(
 add_executable(throttle_mixing src/throttle_mixing.cpp)
 target_link_libraries(throttle_mixing ${catkin_LIBRARIES})
 add_dependencies(throttle_mixing rov_generate_messages_cpp)
+
+add_executable(EulertoQuat src/EulertoQuat.cpp)
+target_link_libraries(EulertoQuat ${catkin_LIBRARIES})
+add_dependencies(EulertoQuat rov_generate_messages_cpp)
+
+add_executable(QuattoEuler src/QuattoEuler.cpp)
+target_link_libraries(QuattoEuler ${catkin_LIBRARIES})
+add_dependencies(QuattoEuler rov_generate_messages_cpp)
+
+add_executable(recombiner src/recombiner.cpp)
+target_link_libraries(recombiner ${catkin_LIBRARIES})
+add_dependencies(recombiner rov_generate_messages_cpp)
