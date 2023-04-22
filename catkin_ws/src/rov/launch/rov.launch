@@ -1,0 +1,14 @@
+<launch>
+<!-- Controller Node-->
+	<include file="$(find teleop_twist_joy)/launch/teleop.launch" />
+<!-- Thruster Node-->	
+<node pkg="rov" type="throttle_mixing" name="throttle_mixing" output="screen" />
+
+<!-- Arduino Node-->
+<!--
+<node pkg="rosserial_python" type="serial_node.py" name="serial_node" output="screen" >
+	<param name="port" type="string" value="/dev/ttyACM0" />
+	<param name="baud" type="int" value="57600" />
+	</node>
+	-->
+</launch>

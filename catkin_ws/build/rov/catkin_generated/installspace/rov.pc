@@ -1,0 +1,8 @@
+prefix=/home/pi/catkin_ws/install
+
+Name: rov
+Description: Description of rov
+Version: 0.0.0
+Cflags: -I${prefix}/include
+Libs: -L${prefix}/lib 
+Requires: 
