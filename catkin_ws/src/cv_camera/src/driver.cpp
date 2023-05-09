@@ -5,7 +5,7 @@
 
 namespace
 {
-const double DEFAULT_RATE = 60.0;
+const double DEFAULT_RATE = 30.0;
 const int32_t PUBLISHER_BUFFER_SIZE = 10;
 }
 

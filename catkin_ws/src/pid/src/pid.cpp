@@ -1,11 +1,5 @@
 
 #include <pid/pid.h>
-<<<<<<< HEAD
-#include <geometry_msgs/Twist.h>
-
-#include <iostream>
-=======
->>>>>>> 30f331ca93a497eb3843ec7493c898e528ed78f1
 
 using namespace pid_ns;
 
@@ -44,17 +38,6 @@ PidObject::PidObject() : error_(3, 0), filtered_error_(3, 0), error_deriv_(3, 0)
   node_priv.param<bool>("angle_error", angle_error_, false);
   node_priv.param<double>("angle_wrap", angle_wrap_, 2.0 * 3.14159);
 
-<<<<<<< HEAD
-  // 0 Linear X
-  // 1 Linear Y
-  // 2 Linear Z
-  // 3 Angular X
-  // 4 Angular Y
-  // 5 Angular Z
-  node_priv.param<int>("index", index, 0);
-
-=======
->>>>>>> 30f331ca93a497eb3843ec7493c898e528ed78f1
   // Update params if specified as command-line options, & print settings
   printParameters();
   if (not validateParameters())
@@ -63,19 +46,11 @@ PidObject::PidObject() : error_(3, 0), filtered_error_(3, 0), error_deriv_(3, 0)
   // instantiate publishers & subscribers
   control_effort_pub_ = node.advertise<std_msgs::Float64>(topic_from_controller_, 1);
   pid_debug_pub_ = node.advertise<std_msgs::Float64MultiArray>(pid_debug_pub_name_, 1);
-<<<<<<< HEAD
-  
-  ros::Subscriber plant_sub_ = node.subscribe(topic_from_plant_, 1, &PidObject::plantStateCallback, this);
-  ros::Subscriber setpoint_sub_ = node.subscribe(setpoint_topic_, 1, &PidObject::setpointCallback, this);
-  ros::Subscriber pid_enabled_sub_ = node.subscribe(pid_enable_topic_, 1, &PidObject::pidEnableCallback, this);
-  
-=======
 
   ros::Subscriber plant_sub_ = node.subscribe(topic_from_plant_, 1, &PidObject::plantStateCallback, this);
   ros::Subscriber setpoint_sub_ = node.subscribe(setpoint_topic_, 1, &PidObject::setpointCallback, this);
   ros::Subscriber pid_enabled_sub_ = node.subscribe(pid_enable_topic_, 1, &PidObject::pidEnableCallback, this);
 
->>>>>>> 30f331ca93a497eb3843ec7493c898e528ed78f1
   if (!plant_sub_ || !setpoint_sub_ || !pid_enabled_sub_)
   {
     ROS_ERROR_STREAM("Initialization of a subscriber failed. Exiting.");
@@ -90,17 +65,10 @@ PidObject::PidObject() : error_(3, 0), filtered_error_(3, 0), error_deriv_(3, 0)
   config_server.setCallback(f);
 
   // Wait for first messages
-<<<<<<< HEAD
-  while( ros::ok() && !ros::topic::waitForMessage<geometry_msgs::Twist>(setpoint_topic_, ros::Duration(10.)))
-     ROS_WARN_STREAM("Waiting for first setpoint message.");
-
-  while( ros::ok() && !ros::topic::waitForMessage<geometry_msgs::Twist>(topic_from_plant_, ros::Duration(10.)))
-=======
   while( ros::ok() && !ros::topic::waitForMessage<std_msgs::Float64>(setpoint_topic_, ros::Duration(10.)))
      ROS_WARN_STREAM("Waiting for first setpoint message.");
 
   while( ros::ok() && !ros::topic::waitForMessage<std_msgs::Float64>(topic_from_plant_, ros::Duration(10.)))
->>>>>>> 30f331ca93a497eb3843ec7493c898e528ed78f1
      ROS_WARN_STREAM("Waiting for first state message from the plant.");
 
   // Respond to inputs until shut down
@@ -113,71 +81,18 @@ PidObject::PidObject() : error_(3, 0), filtered_error_(3, 0), error_deriv_(3, 0)
     ros::Duration(0.001).sleep();
   }
 };
-<<<<<<< HEAD
-// geometry_msgs::Twist
-void PidObject::setpointCallback(const geometry_msgs::Twist& setpoint_msg)
-{
-  setpoint_ = 0;
-  switch(index) {
-  case 0:
-    setpoint_ = setpoint_msg.linear.x;
-    break;
-  case 1:
-    setpoint_ = setpoint_msg.linear.y;
-    break;
-  case 2:
-    setpoint_ = setpoint_msg.linear.z;
-    break;
-  case 3:
-    setpoint_ = setpoint_msg.angular.x;
-    break;
-  case 4:
-    setpoint_ = setpoint_msg.angular.y;
-    break;
-  case 5:
-    setpoint_ = setpoint_msg.angular.z;
-    break;
-  }
-=======
 
 void PidObject::setpointCallback(const std_msgs::Float64& setpoint_msg)
 {
   setpoint_ = setpoint_msg.data;
->>>>>>> 30f331ca93a497eb3843ec7493c898e528ed78f1
   last_setpoint_msg_time_ = ros::Time::now();
   new_state_or_setpt_ = true;
 }
 
-<<<<<<< HEAD
-void PidObject::plantStateCallback(const geometry_msgs::Twist& state_msg)
-{
-  plant_state_ = 0;
-  switch(index) {
-  case 0:
-    plant_state_ = state_msg.linear.x;
-    break;
-  case 1:
-    plant_state_ = state_msg.linear.y;
-    break;
-  case 2:
-    plant_state_ = state_msg.linear.z;
-    break;
-  case 3:
-    plant_state_ = state_msg.angular.x;
-    break;
-  case 4:
-    plant_state_ = state_msg.angular.y;
-    break;
-  case 5:
-    plant_state_ = state_msg.angular.z;
-    break;
-  }
-=======
 void PidObject::plantStateCallback(const std_msgs::Float64& state_msg)
 {
   plant_state_ = state_msg.data;
 
->>>>>>> 30f331ca93a497eb3843ec7493c898e528ed78f1
   new_state_or_setpt_ = true;
 }
 
@@ -232,10 +147,6 @@ void PidObject::printParameters()
   else
     std::cout << "LPF cutoff frequency: " << cutoff_frequency_ << std::endl;
   std::cout << "pid node name: " << ros::this_node::getName() << std::endl;
-<<<<<<< HEAD
-  std::cout << "Index: " << index << "\n";
-=======
->>>>>>> 30f331ca93a497eb3843ec7493c898e528ed78f1
   std::cout << "Name of topic from controller: " << topic_from_controller_ << std::endl;
   std::cout << "Name of topic from the plant: " << topic_from_plant_ << std::endl;
   std::cout << "Name of setpoint topic: " << setpoint_topic_ << std::endl;

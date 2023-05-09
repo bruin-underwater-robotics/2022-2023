@@ -8,11 +8,8 @@ project(rov)
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
-  joy
   roscpp
-  rospy
   std_msgs
-  teleop_twist_joy
   message_generation
   geometry_msgs
   sensor_msgs
@@ -21,11 +18,6 @@ find_package(catkin REQUIRED COMPONENTS
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
 
-
-## Uncomment this if the package has a setup.py. This macro ensures
-## modules and global scripts declared therein get installed
-## See http://ros.org/doc/api/catkin/html/user_guide/setup_dot_py.html
-# catkin_python_setup()
 
 ################################################
 ## Declare ROS messages, services and actions ##
@@ -55,7 +47,6 @@ find_package(catkin REQUIRED COMPONENTS
  add_message_files(
    FILES
    cmd_thruster.msg
-   imu.msg
  )
 
 ## Generate services in the 'srv' folder
@@ -212,15 +203,6 @@ include_directories(
 ## Add folders to be run by python nosetests
 # catkin_add_nosetests(test)
 
-add_executable(throttle_mixing src/throttle_mixing.cpp)
-target_link_libraries(throttle_mixing ${catkin_LIBRARIES})
-add_dependencies(throttle_mixing rov_generate_messages_cpp)
-<<<<<<< HEAD
-add_executable(rov_orientation src/EulertoQuat.cpp)
-target_link_libraries(rov_orientation ${catkin_LIBRARIES})
-add_dependencies(rov_orientation rov_generate_messages_cpp)
-=======
-
 add_executable(EulertoQuat src/EulertoQuat.cpp)
 target_link_libraries(EulertoQuat ${catkin_LIBRARIES})
 add_dependencies(EulertoQuat rov_generate_messages_cpp)
@@ -232,4 +214,3 @@ add_dependencies(QuattoEuler rov_generate_messages_cpp)
 add_executable(recombiner src/recombiner.cpp)
 target_link_libraries(recombiner ${catkin_LIBRARIES})
 add_dependencies(recombiner rov_generate_messages_cpp)
->>>>>>> 30f331ca93a497eb3843ec7493c898e528ed78f1

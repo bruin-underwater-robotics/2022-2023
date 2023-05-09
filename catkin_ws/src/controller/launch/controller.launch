@@ -1,0 +1,22 @@
+<launch>
+<!-- Joystick Nodes-->
+<include file="$(find teleop_twist_joy)/launch/teleop.launch" />
+<!-- Thruster Node-->	
+<node pkg="controller" type="throttle_mixer" name="throttle_mixer">
+    <param name="x_rate" value="1.0" />
+    <param name="y_rate" value="1.0" />
+    <param name="z_rate" value="1.0" />
+    <param name="pitch_rate" value="1.0" />
+    <param name="roll_rate" value="1.0" />
+    <param name="yaw_rate" value="1.0" />
+
+    <param name="x_expo" value="1.0" />
+    <param name="y_expo" value="1.0" />
+    <param name="z_expo" value="1.0" />
+    <param name="pitch_expo" value="1.0" />
+    <param name="roll_expo" value="1.0" />
+    <param name="yaw_expo" value="1.0" />
+</node>
+<node name="rqt_gui2" pkg="rqt_gui" type="rqt_gui" respawn="false" output = "screen"
+args = "--perspective-file $(find controller)/rqt_config/controller.perspective"/>
+</launch>

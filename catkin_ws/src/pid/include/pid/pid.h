@@ -46,10 +46,6 @@
 #include <std_msgs/Float64MultiArray.h>
 #include <stdio.h>
 #include <string>
-<<<<<<< HEAD
-#include <geometry_msgs/Twist.h>
-=======
->>>>>>> 30f331ca93a497eb3843ec7493c898e528ed78f1
 
 namespace pid_ns
 {
@@ -61,21 +57,16 @@ public:
   // Primary output variable
   double control_effort_ = 0;        // output of pid controller
 
+  
+
 private:
   void doCalcs();
   void getParams(double in, double& value, double& scale);
   void pidEnableCallback(const std_msgs::Bool& pid_enable_msg);
-<<<<<<< HEAD
-  void plantStateCallback(const geometry_msgs::Twist& state_msg);
-  void printParameters();
-  void reconfigureCallback(pid::PidConfig& config, uint32_t level);
-  void setpointCallback(const geometry_msgs::Twist& setpoint_msg);
-=======
   void plantStateCallback(const std_msgs::Float64& state_msg);
   void printParameters();
   void reconfigureCallback(pid::PidConfig& config, uint32_t level);
   void setpointCallback(const std_msgs::Float64& setpoint_msg);
->>>>>>> 30f331ca93a497eb3843ec7493c898e528ed78f1
   bool validateParameters();
 
   // Primary PID controller input variables
@@ -138,12 +129,6 @@ private:
   // Diagnostic objects
   double min_loop_frequency_ = 1, max_loop_frequency_ = 1000;
   int measurements_received_ = 0;
-<<<<<<< HEAD
-
-  // Which twist value to work with.
-  int index;
-=======
->>>>>>> 30f331ca93a497eb3843ec7493c898e528ed78f1
 };
 }  // end pid namespace
 

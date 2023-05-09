@@ -61,11 +61,7 @@ void EulertoQuat::cmd_velCallback(const geometry_msgs::Twist::ConstPtr& msg){
 }
 
 int main(int argc, char **argv){
-<<<<<<< HEAD
-    ros::init(argc, argv, "rov_orientation");
-=======
     ros::init(argc, argv, "rov_orientation_quat");
->>>>>>> 30f331ca93a497eb3843ec7493c898e528ed78f1
     EulertoQuat E;
     while(ros::ok()){
         ros::spinOnce();

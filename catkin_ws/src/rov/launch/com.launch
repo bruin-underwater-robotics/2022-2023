@@ -1,0 +1,25 @@
+<launch>
+<!-- Controller Node-->
+<include file="$(find controller)/launch/controller.launch" />
+<!-- imu Output conversion -->
+<node pkg="rov" type="QuattoEuler" name="QuattoEuler" />
+<!-- recombiner node -->
+<node pkg="rov" type="recombiner" name="recombiner" />
+<!-- PID -->
+<!-- <include file="$(find pid)/launch/rov_pid.launch" /> -->
+<node pkg="image_transport" type="republish" name="cam1_republish"> 
+    <param name="in" value="/cam1/image_raw"/>
+    <param name="out" value="/cam1_republish"/>
+</node>
+<node pkg="image_transport" type="republish" name="cam2_republish"> 
+    <param name="in" value="/cam2/image_raw"/>
+    <param name="out" value="/cam2_republish"/>
+</node>
+<node pkg="image_transport" type="republish" name="cam3_republish"> 
+    <param name="in" value="/cam3/image_raw"/>
+    <param name="out" value="/cam3_republish"/>
+</node>
+<!-- rqt GUI -->
+<node name="rqt_gui1" pkg="rqt_gui" type="rqt_gui" respawn="false" output = "screen"
+args = "--perspective-file $(find rov)/rqt_config/no_imu.perspective"/>
+</launch>
