@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/pi/catkin_ws/src
+CMAKE_SOURCE_DIR = /home/pi/BUR-2022-2023/catkin_ws/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/pi/catkin_ws/build
+CMAKE_BINARY_DIR = /home/pi/BUR-2022-2023/catkin_ws/build
 
 # Utility rule file for run_tests_cv_camera_rostest_test_cv_camera.test.
 
@@ -54,7 +54,7 @@ CMAKE_BINARY_DIR = /home/pi/catkin_ws/build
 include cv_camera/CMakeFiles/run_tests_cv_camera_rostest_test_cv_camera.test.dir/progress.make
 
 cv_camera/CMakeFiles/run_tests_cv_camera_rostest_test_cv_camera.test:
-	cd /home/pi/catkin_ws/build/cv_camera && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/catkin/cmake/test/run_tests.py /home/pi/catkin_ws/build/test_results/cv_camera/rostest-test_cv_camera.xml "/usr/bin/python3 /opt/ros/noetic/share/rostest/cmake/../../../bin/rostest --pkgdir=/home/pi/catkin_ws/src/cv_camera --package=cv_camera --results-filename test_cv_camera.xml --results-base-dir \"/home/pi/catkin_ws/build/test_results\" /home/pi/catkin_ws/src/cv_camera/test/cv_camera.test "
+	cd /home/pi/BUR-2022-2023/catkin_ws/build/cv_camera && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/catkin/cmake/test/run_tests.py /home/pi/BUR-2022-2023/catkin_ws/build/test_results/cv_camera/rostest-test_cv_camera.xml "/usr/bin/python3 /opt/ros/noetic/share/rostest/cmake/../../../bin/rostest --pkgdir=/home/pi/BUR-2022-2023/catkin_ws/src/cv_camera --package=cv_camera --results-filename test_cv_camera.xml --results-base-dir \"/home/pi/BUR-2022-2023/catkin_ws/build/test_results\" /home/pi/BUR-2022-2023/catkin_ws/src/cv_camera/test/cv_camera.test "
 
 run_tests_cv_camera_rostest_test_cv_camera.test: cv_camera/CMakeFiles/run_tests_cv_camera_rostest_test_cv_camera.test
 run_tests_cv_camera_rostest_test_cv_camera.test: cv_camera/CMakeFiles/run_tests_cv_camera_rostest_test_cv_camera.test.dir/build.make
@@ -67,10 +67,10 @@ cv_camera/CMakeFiles/run_tests_cv_camera_rostest_test_cv_camera.test.dir/build: 
 .PHONY : cv_camera/CMakeFiles/run_tests_cv_camera_rostest_test_cv_camera.test.dir/build
 
 cv_camera/CMakeFiles/run_tests_cv_camera_rostest_test_cv_camera.test.dir/clean:
-	cd /home/pi/catkin_ws/build/cv_camera && $(CMAKE_COMMAND) -P CMakeFiles/run_tests_cv_camera_rostest_test_cv_camera.test.dir/cmake_clean.cmake
+	cd /home/pi/BUR-2022-2023/catkin_ws/build/cv_camera && $(CMAKE_COMMAND) -P CMakeFiles/run_tests_cv_camera_rostest_test_cv_camera.test.dir/cmake_clean.cmake
 .PHONY : cv_camera/CMakeFiles/run_tests_cv_camera_rostest_test_cv_camera.test.dir/clean
 
 cv_camera/CMakeFiles/run_tests_cv_camera_rostest_test_cv_camera.test.dir/depend:
-	cd /home/pi/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/pi/catkin_ws/src /home/pi/catkin_ws/src/cv_camera /home/pi/catkin_ws/build /home/pi/catkin_ws/build/cv_camera /home/pi/catkin_ws/build/cv_camera/CMakeFiles/run_tests_cv_camera_rostest_test_cv_camera.test.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/pi/BUR-2022-2023/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/pi/BUR-2022-2023/catkin_ws/src /home/pi/BUR-2022-2023/catkin_ws/src/cv_camera /home/pi/BUR-2022-2023/catkin_ws/build /home/pi/BUR-2022-2023/catkin_ws/build/cv_camera /home/pi/BUR-2022-2023/catkin_ws/build/cv_camera/CMakeFiles/run_tests_cv_camera_rostest_test_cv_camera.test.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : cv_camera/CMakeFiles/run_tests_cv_camera_rostest_test_cv_camera.test.dir/depend
 

@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
-  "/home/pi/catkin_ws/devel/lib/python3/dist-packages/rov/msg/__init__.py"
-  "/home/pi/catkin_ws/devel/lib/python3/dist-packages/rov/msg/_cmd_thruster.py"
-  "/home/pi/catkin_ws/devel/lib/python3/dist-packages/rov/msg/_imu.py"
+  "/home/pi/BUR-2022-2023/catkin_ws/devel/lib/python3/dist-packages/rov/msg/__init__.py"
+  "/home/pi/BUR-2022-2023/catkin_ws/devel/lib/python3/dist-packages/rov/msg/_cmd_thruster.py"
+  "/home/pi/BUR-2022-2023/catkin_ws/devel/lib/python3/dist-packages/rov/msg/_imu.py"
   "CMakeFiles/rov_generate_messages_py"
 )
 

@@ -1,21 +1,21 @@
 Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
-Change Dir: /home/pi/catkin_ws/build/CMakeFiles/CMakeTmp
+Change Dir: /home/pi/BUR-2022-2023/catkin_ws/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/make cmTC_dab35/fast && /usr/bin/make -f CMakeFiles/cmTC_dab35.dir/build.make CMakeFiles/cmTC_dab35.dir/build
-make[1]: Entering directory '/home/pi/catkin_ws/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_dab35.dir/src.c.o
-/usr/bin/cc   -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_dab35.dir/src.c.o   -c /home/pi/catkin_ws/build/CMakeFiles/CMakeTmp/src.c
-Linking C executable cmTC_dab35
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_dab35.dir/link.txt --verbose=1
-/usr/bin/cc  -DCMAKE_HAVE_LIBC_PTHREAD    -rdynamic CMakeFiles/cmTC_dab35.dir/src.c.o  -o cmTC_dab35 
-/usr/bin/ld: CMakeFiles/cmTC_dab35.dir/src.c.o: in function `main':
+Run Build Command(s):/usr/bin/make cmTC_24a38/fast && /usr/bin/make -f CMakeFiles/cmTC_24a38.dir/build.make CMakeFiles/cmTC_24a38.dir/build
+make[1]: Entering directory '/home/pi/BUR-2022-2023/catkin_ws/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_24a38.dir/src.c.o
+/usr/bin/cc   -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_24a38.dir/src.c.o   -c /home/pi/BUR-2022-2023/catkin_ws/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_24a38
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_24a38.dir/link.txt --verbose=1
+/usr/bin/cc  -DCMAKE_HAVE_LIBC_PTHREAD    -rdynamic CMakeFiles/cmTC_24a38.dir/src.c.o  -o cmTC_24a38 
+/usr/bin/ld: CMakeFiles/cmTC_24a38.dir/src.c.o: in function `main':
 src.c:(.text+0x48): undefined reference to `pthread_create'
 /usr/bin/ld: src.c:(.text+0x50): undefined reference to `pthread_detach'
 /usr/bin/ld: src.c:(.text+0x5c): undefined reference to `pthread_join'
 collect2: error: ld returned 1 exit status
-make[1]: *** [CMakeFiles/cmTC_dab35.dir/build.make:87: cmTC_dab35] Error 1
-make[1]: Leaving directory '/home/pi/catkin_ws/build/CMakeFiles/CMakeTmp'
-make: *** [Makefile:121: cmTC_dab35/fast] Error 2
+make[1]: *** [CMakeFiles/cmTC_24a38.dir/build.make:87: cmTC_24a38] Error 1
+make[1]: Leaving directory '/home/pi/BUR-2022-2023/catkin_ws/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_24a38/fast] Error 2
 
 
 Source file was:
@@ -39,20 +39,20 @@ int main(void)
 }
 
 Determining if the function pthread_create exists in the pthreads failed with the following output:
-Change Dir: /home/pi/catkin_ws/build/CMakeFiles/CMakeTmp
+Change Dir: /home/pi/BUR-2022-2023/catkin_ws/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/make cmTC_ebd24/fast && /usr/bin/make -f CMakeFiles/cmTC_ebd24.dir/build.make CMakeFiles/cmTC_ebd24.dir/build
-make[1]: Entering directory '/home/pi/catkin_ws/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_ebd24.dir/CheckFunctionExists.c.o
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_ebd24.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.16/Modules/CheckFunctionExists.c
-Linking C executable cmTC_ebd24
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ebd24.dir/link.txt --verbose=1
-/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    -rdynamic CMakeFiles/cmTC_ebd24.dir/CheckFunctionExists.c.o  -o cmTC_ebd24  -lpthreads 
+Run Build Command(s):/usr/bin/make cmTC_fd8dc/fast && /usr/bin/make -f CMakeFiles/cmTC_fd8dc.dir/build.make CMakeFiles/cmTC_fd8dc.dir/build
+make[1]: Entering directory '/home/pi/BUR-2022-2023/catkin_ws/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_fd8dc.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_fd8dc.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.16/Modules/CheckFunctionExists.c
+Linking C executable cmTC_fd8dc
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_fd8dc.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    -rdynamic CMakeFiles/cmTC_fd8dc.dir/CheckFunctionExists.c.o  -o cmTC_fd8dc  -lpthreads 
 /usr/bin/ld: cannot find -lpthreads
 collect2: error: ld returned 1 exit status
-make[1]: *** [CMakeFiles/cmTC_ebd24.dir/build.make:87: cmTC_ebd24] Error 1
-make[1]: Leaving directory '/home/pi/catkin_ws/build/CMakeFiles/CMakeTmp'
-make: *** [Makefile:121: cmTC_ebd24/fast] Error 2
+make[1]: *** [CMakeFiles/cmTC_fd8dc.dir/build.make:87: cmTC_fd8dc] Error 1
+make[1]: Leaving directory '/home/pi/BUR-2022-2023/catkin_ws/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_fd8dc/fast] Error 2
 
 
 

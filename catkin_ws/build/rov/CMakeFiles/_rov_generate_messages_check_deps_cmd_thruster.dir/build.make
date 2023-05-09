@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/pi/catkin_ws/src
+CMAKE_SOURCE_DIR = /home/pi/BUR-2022-2023/catkin_ws/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/pi/catkin_ws/build
+CMAKE_BINARY_DIR = /home/pi/BUR-2022-2023/catkin_ws/build
 
 # Utility rule file for _rov_generate_messages_check_deps_cmd_thruster.
 
@@ -54,7 +54,7 @@ CMAKE_BINARY_DIR = /home/pi/catkin_ws/build
 include rov/CMakeFiles/_rov_generate_messages_check_deps_cmd_thruster.dir/progress.make
 
 rov/CMakeFiles/_rov_generate_messages_check_deps_cmd_thruster:
-	cd /home/pi/catkin_ws/build/rov && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py rov /home/pi/catkin_ws/src/rov/msg/cmd_thruster.msg 
+	cd /home/pi/BUR-2022-2023/catkin_ws/build/rov && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py rov /home/pi/BUR-2022-2023/catkin_ws/src/rov/msg/cmd_thruster.msg 
 
 _rov_generate_messages_check_deps_cmd_thruster: rov/CMakeFiles/_rov_generate_messages_check_deps_cmd_thruster
 _rov_generate_messages_check_deps_cmd_thruster: rov/CMakeFiles/_rov_generate_messages_check_deps_cmd_thruster.dir/build.make
@@ -67,10 +67,10 @@ rov/CMakeFiles/_rov_generate_messages_check_deps_cmd_thruster.dir/build: _rov_ge
 .PHONY : rov/CMakeFiles/_rov_generate_messages_check_deps_cmd_thruster.dir/build
 
 rov/CMakeFiles/_rov_generate_messages_check_deps_cmd_thruster.dir/clean:
-	cd /home/pi/catkin_ws/build/rov && $(CMAKE_COMMAND) -P CMakeFiles/_rov_generate_messages_check_deps_cmd_thruster.dir/cmake_clean.cmake
+	cd /home/pi/BUR-2022-2023/catkin_ws/build/rov && $(CMAKE_COMMAND) -P CMakeFiles/_rov_generate_messages_check_deps_cmd_thruster.dir/cmake_clean.cmake
 .PHONY : rov/CMakeFiles/_rov_generate_messages_check_deps_cmd_thruster.dir/clean
 
 rov/CMakeFiles/_rov_generate_messages_check_deps_cmd_thruster.dir/depend:
-	cd /home/pi/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/pi/catkin_ws/src /home/pi/catkin_ws/src/rov /home/pi/catkin_ws/build /home/pi/catkin_ws/build/rov /home/pi/catkin_ws/build/rov/CMakeFiles/_rov_generate_messages_check_deps_cmd_thruster.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/pi/BUR-2022-2023/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/pi/BUR-2022-2023/catkin_ws/src /home/pi/BUR-2022-2023/catkin_ws/src/rov /home/pi/BUR-2022-2023/catkin_ws/build /home/pi/BUR-2022-2023/catkin_ws/build/rov /home/pi/BUR-2022-2023/catkin_ws/build/rov/CMakeFiles/_rov_generate_messages_check_deps_cmd_thruster.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : rov/CMakeFiles/_rov_generate_messages_check_deps_cmd_thruster.dir/depend
 

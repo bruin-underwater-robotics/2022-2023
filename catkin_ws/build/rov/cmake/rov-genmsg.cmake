@@ -2,7 +2,7 @@
 
 message(STATUS "rov: 2 messages, 0 services")
 
-set(MSG_I_FLAGS "-Irov:/home/pi/catkin_ws/src/rov/msg;-Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg;-Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg;-Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg")
+set(MSG_I_FLAGS "-Irov:/home/pi/BUR-2022-2023/catkin_ws/src/rov/msg;-Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg;-Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg;-Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg")
 
 # Find all generators
 find_package(gencpp REQUIRED)
@@ -17,14 +17,14 @@ add_custom_target(rov_generate_messages ALL)
 
 
 
-get_filename_component(_filename "/home/pi/catkin_ws/src/rov/msg/cmd_thruster.msg" NAME_WE)
+get_filename_component(_filename "/home/pi/BUR-2022-2023/catkin_ws/src/rov/msg/cmd_thruster.msg" NAME_WE)
 add_custom_target(_rov_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "rov" "/home/pi/catkin_ws/src/rov/msg/cmd_thruster.msg" ""
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "rov" "/home/pi/BUR-2022-2023/catkin_ws/src/rov/msg/cmd_thruster.msg" ""
 )
 
-get_filename_component(_filename "/home/pi/catkin_ws/src/rov/msg/imu.msg" NAME_WE)
+get_filename_component(_filename "/home/pi/BUR-2022-2023/catkin_ws/src/rov/msg/imu.msg" NAME_WE)
 add_custom_target(_rov_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "rov" "/home/pi/catkin_ws/src/rov/msg/imu.msg" ""
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "rov" "/home/pi/BUR-2022-2023/catkin_ws/src/rov/msg/imu.msg" ""
 )
 
 #
@@ -34,13 +34,13 @@ add_custom_target(_rov_generate_messages_check_deps_${_filename}
 ### Section generating for lang: gencpp
 ### Generating Messages
 _generate_msg_cpp(rov
-  "/home/pi/catkin_ws/src/rov/msg/cmd_thruster.msg"
+  "/home/pi/BUR-2022-2023/catkin_ws/src/rov/msg/cmd_thruster.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/rov
 )
 _generate_msg_cpp(rov
-  "/home/pi/catkin_ws/src/rov/msg/imu.msg"
+  "/home/pi/BUR-2022-2023/catkin_ws/src/rov/msg/imu.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/rov
@@ -60,9 +60,9 @@ add_custom_target(rov_generate_messages_cpp
 add_dependencies(rov_generate_messages rov_generate_messages_cpp)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/pi/catkin_ws/src/rov/msg/cmd_thruster.msg" NAME_WE)
+get_filename_component(_filename "/home/pi/BUR-2022-2023/catkin_ws/src/rov/msg/cmd_thruster.msg" NAME_WE)
 add_dependencies(rov_generate_messages_cpp _rov_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/pi/catkin_ws/src/rov/msg/imu.msg" NAME_WE)
+get_filename_component(_filename "/home/pi/BUR-2022-2023/catkin_ws/src/rov/msg/imu.msg" NAME_WE)
 add_dependencies(rov_generate_messages_cpp _rov_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -75,13 +75,13 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS rov_generate_messages_cpp)
 ### Section generating for lang: geneus
 ### Generating Messages
 _generate_msg_eus(rov
-  "/home/pi/catkin_ws/src/rov/msg/cmd_thruster.msg"
+  "/home/pi/BUR-2022-2023/catkin_ws/src/rov/msg/cmd_thruster.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/rov
 )
 _generate_msg_eus(rov
-  "/home/pi/catkin_ws/src/rov/msg/imu.msg"
+  "/home/pi/BUR-2022-2023/catkin_ws/src/rov/msg/imu.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/rov
@@ -101,9 +101,9 @@ add_custom_target(rov_generate_messages_eus
 add_dependencies(rov_generate_messages rov_generate_messages_eus)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/pi/catkin_ws/src/rov/msg/cmd_thruster.msg" NAME_WE)
+get_filename_component(_filename "/home/pi/BUR-2022-2023/catkin_ws/src/rov/msg/cmd_thruster.msg" NAME_WE)
 add_dependencies(rov_generate_messages_eus _rov_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/pi/catkin_ws/src/rov/msg/imu.msg" NAME_WE)
+get_filename_component(_filename "/home/pi/BUR-2022-2023/catkin_ws/src/rov/msg/imu.msg" NAME_WE)
 add_dependencies(rov_generate_messages_eus _rov_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -116,13 +116,13 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS rov_generate_messages_eus)
 ### Section generating for lang: genlisp
 ### Generating Messages
 _generate_msg_lisp(rov
-  "/home/pi/catkin_ws/src/rov/msg/cmd_thruster.msg"
+  "/home/pi/BUR-2022-2023/catkin_ws/src/rov/msg/cmd_thruster.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/rov
 )
 _generate_msg_lisp(rov
-  "/home/pi/catkin_ws/src/rov/msg/imu.msg"
+  "/home/pi/BUR-2022-2023/catkin_ws/src/rov/msg/imu.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/rov
@@ -142,9 +142,9 @@ add_custom_target(rov_generate_messages_lisp
 add_dependencies(rov_generate_messages rov_generate_messages_lisp)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/pi/catkin_ws/src/rov/msg/cmd_thruster.msg" NAME_WE)
+get_filename_component(_filename "/home/pi/BUR-2022-2023/catkin_ws/src/rov/msg/cmd_thruster.msg" NAME_WE)
 add_dependencies(rov_generate_messages_lisp _rov_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/pi/catkin_ws/src/rov/msg/imu.msg" NAME_WE)
+get_filename_component(_filename "/home/pi/BUR-2022-2023/catkin_ws/src/rov/msg/imu.msg" NAME_WE)
 add_dependencies(rov_generate_messages_lisp _rov_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -157,13 +157,13 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS rov_generate_messages_lisp)
 ### Section generating for lang: gennodejs
 ### Generating Messages
 _generate_msg_nodejs(rov
-  "/home/pi/catkin_ws/src/rov/msg/cmd_thruster.msg"
+  "/home/pi/BUR-2022-2023/catkin_ws/src/rov/msg/cmd_thruster.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/rov
 )
 _generate_msg_nodejs(rov
-  "/home/pi/catkin_ws/src/rov/msg/imu.msg"
+  "/home/pi/BUR-2022-2023/catkin_ws/src/rov/msg/imu.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/rov
@@ -183,9 +183,9 @@ add_custom_target(rov_generate_messages_nodejs
 add_dependencies(rov_generate_messages rov_generate_messages_nodejs)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/pi/catkin_ws/src/rov/msg/cmd_thruster.msg" NAME_WE)
+get_filename_component(_filename "/home/pi/BUR-2022-2023/catkin_ws/src/rov/msg/cmd_thruster.msg" NAME_WE)
 add_dependencies(rov_generate_messages_nodejs _rov_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/pi/catkin_ws/src/rov/msg/imu.msg" NAME_WE)
+get_filename_component(_filename "/home/pi/BUR-2022-2023/catkin_ws/src/rov/msg/imu.msg" NAME_WE)
 add_dependencies(rov_generate_messages_nodejs _rov_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -198,13 +198,13 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS rov_generate_messages_nodejs)
 ### Section generating for lang: genpy
 ### Generating Messages
 _generate_msg_py(rov
-  "/home/pi/catkin_ws/src/rov/msg/cmd_thruster.msg"
+  "/home/pi/BUR-2022-2023/catkin_ws/src/rov/msg/cmd_thruster.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/rov
 )
 _generate_msg_py(rov
-  "/home/pi/catkin_ws/src/rov/msg/imu.msg"
+  "/home/pi/BUR-2022-2023/catkin_ws/src/rov/msg/imu.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/rov
@@ -224,9 +224,9 @@ add_custom_target(rov_generate_messages_py
 add_dependencies(rov_generate_messages rov_generate_messages_py)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/pi/catkin_ws/src/rov/msg/cmd_thruster.msg" NAME_WE)
+get_filename_component(_filename "/home/pi/BUR-2022-2023/catkin_ws/src/rov/msg/cmd_thruster.msg" NAME_WE)
 add_dependencies(rov_generate_messages_py _rov_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/pi/catkin_ws/src/rov/msg/imu.msg" NAME_WE)
+get_filename_component(_filename "/home/pi/BUR-2022-2023/catkin_ws/src/rov/msg/imu.msg" NAME_WE)
 add_dependencies(rov_generate_messages_py _rov_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility

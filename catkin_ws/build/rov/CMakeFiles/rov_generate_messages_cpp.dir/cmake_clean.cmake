@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/pi/catkin_ws/devel/include/rov/cmd_thruster.h"
-  "/home/pi/catkin_ws/devel/include/rov/imu.h"
+  "/home/pi/BUR-2022-2023/catkin_ws/devel/include/rov/cmd_thruster.h"
+  "/home/pi/BUR-2022-2023/catkin_ws/devel/include/rov/imu.h"
   "CMakeFiles/rov_generate_messages_cpp"
 )
 

@@ -4,5 +4,5 @@ PROJECT_PKG_CONFIG_INCLUDE_DIRS = "${prefix}/include".split(';') if "${prefix}/i
 PROJECT_CATKIN_DEPENDS = "".replace(';', ' ')
 PKG_CONFIG_LIBRARIES_WITH_PREFIX = "".split(';') if "" != "" else []
 PROJECT_NAME = "rov"
-PROJECT_SPACE_DIR = "/home/pi/catkin_ws/install"
+PROJECT_SPACE_DIR = "/home/pi/BUR-2022-2023/catkin_ws/install"
 PROJECT_VERSION = "0.0.0"

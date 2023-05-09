@@ -1,4 +1,4 @@
-prefix=/home/pi/catkin_ws/install
+prefix=/home/pi/BUR-2022-2023/catkin_ws/install
 
 Name: cv_camera
 Description: Description of cv_camera

@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/pi/catkin_ws/devel/share/common-lisp/ros/rov/msg/cmd_thruster.lisp"
-  "/home/pi/catkin_ws/devel/share/common-lisp/ros/rov/msg/imu.lisp"
+  "/home/pi/BUR-2022-2023/catkin_ws/devel/share/common-lisp/ros/rov/msg/cmd_thruster.lisp"
+  "/home/pi/BUR-2022-2023/catkin_ws/devel/share/common-lisp/ros/rov/msg/imu.lisp"
   "CMakeFiles/rov_generate_messages_lisp"
 )
 

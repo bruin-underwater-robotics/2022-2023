@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/pi/catkin_ws/devel/lib/cv_camera/test_cv_camera"
-  "/home/pi/catkin_ws/devel/lib/cv_camera/test_cv_camera.pdb"
+  "/home/pi/BUR-2022-2023/catkin_ws/devel/lib/cv_camera/test_cv_camera"
+  "/home/pi/BUR-2022-2023/catkin_ws/devel/lib/cv_camera/test_cv_camera.pdb"
   "CMakeFiles/test_cv_camera.dir/test/test_cv_camera.cpp.o"
 )
 

@@ -1,2 +1,2 @@
 - setup-file:
-    local-name: /home/pi/catkin_ws/devel/setup.sh
+    local-name: /home/pi/BUR-2022-2023/catkin_ws/devel/setup.sh

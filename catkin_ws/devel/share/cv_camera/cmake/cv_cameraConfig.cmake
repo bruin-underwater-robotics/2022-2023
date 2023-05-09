@@ -67,14 +67,14 @@ set(cv_camera_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("TRUE" STREQUAL "TRUE")
-  set(cv_camera_SOURCE_PREFIX /home/pi/catkin_ws/src/cv_camera)
-  set(cv_camera_DEVEL_PREFIX /home/pi/catkin_ws/devel)
+  set(cv_camera_SOURCE_PREFIX /home/pi/BUR-2022-2023/catkin_ws/src/cv_camera)
+  set(cv_camera_DEVEL_PREFIX /home/pi/BUR-2022-2023/catkin_ws/devel)
   set(cv_camera_INSTALL_PREFIX "")
   set(cv_camera_PREFIX ${cv_camera_DEVEL_PREFIX})
 else()
   set(cv_camera_SOURCE_PREFIX "")
   set(cv_camera_DEVEL_PREFIX "")
-  set(cv_camera_INSTALL_PREFIX /home/pi/catkin_ws/install)
+  set(cv_camera_INSTALL_PREFIX /home/pi/BUR-2022-2023/catkin_ws/install)
   set(cv_camera_PREFIX ${cv_camera_INSTALL_PREFIX})
 endif()
 
@@ -91,9 +91,9 @@ endif()
 # flag project as catkin-based to distinguish if a find_package()-ed project is a catkin project
 set(cv_camera_FOUND_CATKIN_PROJECT TRUE)
 
-if(NOT "/home/pi/catkin_ws/src/cv_camera/include;/usr/include/opencv4 " STREQUAL " ")
+if(NOT "/home/pi/BUR-2022-2023/catkin_ws/src/cv_camera/include;/usr/include/opencv4 " STREQUAL " ")
   set(cv_camera_INCLUDE_DIRS "")
-  set(_include_dirs "/home/pi/catkin_ws/src/cv_camera/include;/usr/include/opencv4")
+  set(_include_dirs "/home/pi/BUR-2022-2023/catkin_ws/src/cv_camera/include;/usr/include/opencv4")
   if(NOT " " STREQUAL " ")
     set(_report "Check the issue tracker '' and consider creating a ticket if the problem has not been reported yet.")
   elseif(NOT "http://wiki.ros.org/cv_camera " STREQUAL " ")
@@ -110,7 +110,7 @@ if(NOT "/home/pi/catkin_ws/src/cv_camera/include;/usr/include/opencv4 " STREQUAL
         message(FATAL_ERROR "Project 'cv_camera' specifies '${idir}' as an include dir, which is not found.  It does not exist in '${include}'.  ${_report}")
       endif()
     else()
-      message(FATAL_ERROR "Project 'cv_camera' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/home/pi/catkin_ws/src/cv_camera/${idir}'.  ${_report}")
+      message(FATAL_ERROR "Project 'cv_camera' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/home/pi/BUR-2022-2023/catkin_ws/src/cv_camera/${idir}'.  ${_report}")
     endif()
     _list_append_unique(cv_camera_INCLUDE_DIRS ${include})
   endforeach()
@@ -154,7 +154,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/pi/catkin_ws/devel/lib;/home/pi/catkin_ws/devel/lib;/opt/ros/noetic/lib)
+    foreach(path /home/pi/BUR-2022-2023/catkin_ws/devel/lib;/home/pi/BUR-2022-2023/catkin_ws/devel/lib;/opt/ros/noetic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)

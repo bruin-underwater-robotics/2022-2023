@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/pi/catkin_ws/src
+CMAKE_SOURCE_DIR = /home/pi/BUR-2022-2023/catkin_ws/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/pi/catkin_ws/build
+CMAKE_BINARY_DIR = /home/pi/BUR-2022-2023/catkin_ws/build
 
 # Utility rule file for geometry_msgs_generate_messages_cpp.
 
@@ -63,10 +63,10 @@ rov/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build: geometry_msgs_gene
 .PHONY : rov/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build
 
 rov/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/clean:
-	cd /home/pi/catkin_ws/build/rov && $(CMAKE_COMMAND) -P CMakeFiles/geometry_msgs_generate_messages_cpp.dir/cmake_clean.cmake
+	cd /home/pi/BUR-2022-2023/catkin_ws/build/rov && $(CMAKE_COMMAND) -P CMakeFiles/geometry_msgs_generate_messages_cpp.dir/cmake_clean.cmake
 .PHONY : rov/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/clean
 
 rov/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/depend:
-	cd /home/pi/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/pi/catkin_ws/src /home/pi/catkin_ws/src/rov /home/pi/catkin_ws/build /home/pi/catkin_ws/build/rov /home/pi/catkin_ws/build/rov/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/pi/BUR-2022-2023/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/pi/BUR-2022-2023/catkin_ws/src /home/pi/BUR-2022-2023/catkin_ws/src/rov /home/pi/BUR-2022-2023/catkin_ws/build /home/pi/BUR-2022-2023/catkin_ws/build/rov /home/pi/BUR-2022-2023/catkin_ws/build/rov/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : rov/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/depend
 

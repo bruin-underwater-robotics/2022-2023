@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/pi/catkin_ws/devel/share/gennodejs/ros/rov/msg/cmd_thruster.js"
-  "/home/pi/catkin_ws/devel/share/gennodejs/ros/rov/msg/imu.js"
+  "/home/pi/BUR-2022-2023/catkin_ws/devel/share/gennodejs/ros/rov/msg/cmd_thruster.js"
+  "/home/pi/BUR-2022-2023/catkin_ws/devel/share/gennodejs/ros/rov/msg/imu.js"
   "CMakeFiles/rov_generate_messages_nodejs"
 )
 

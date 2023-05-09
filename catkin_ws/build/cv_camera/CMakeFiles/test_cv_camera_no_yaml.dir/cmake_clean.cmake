@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/pi/catkin_ws/devel/lib/cv_camera/test_cv_camera_no_yaml"
-  "/home/pi/catkin_ws/devel/lib/cv_camera/test_cv_camera_no_yaml.pdb"
+  "/home/pi/BUR-2022-2023/catkin_ws/devel/lib/cv_camera/test_cv_camera_no_yaml"
+  "/home/pi/BUR-2022-2023/catkin_ws/devel/lib/cv_camera/test_cv_camera_no_yaml.pdb"
   "CMakeFiles/test_cv_camera_no_yaml.dir/test/test_cv_camera_no_yaml.cpp.o"
 )
 

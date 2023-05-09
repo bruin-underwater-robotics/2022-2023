@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/pi/catkin_ws/devel/lib/libcv_camera_nodelet.pdb"
-  "/home/pi/catkin_ws/devel/lib/libcv_camera_nodelet.so"
+  "/home/pi/BUR-2022-2023/catkin_ws/devel/lib/libcv_camera_nodelet.pdb"
+  "/home/pi/BUR-2022-2023/catkin_ws/devel/lib/libcv_camera_nodelet.so"
   "CMakeFiles/cv_camera_nodelet.dir/src/cv_camera_nodelet.cpp.o"
 )
 
