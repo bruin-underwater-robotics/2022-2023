@@ -38,11 +38,11 @@ class Throttle_mixer{
         |    |
         3----6
         */
-        const int forward[6] = {1, 0, 1, 0, 1, 1};
-        const int right[6] = {-1, 0, 1, 0, 1, -1};
-        const int up[6] = {0, -1, 0, 1, 0, 0};
-        const int yaw[6] = {-1, 0, -1, 0, 1, 1};
-        const int roll[6] = {0, -1, 0, -1, 0, 0};
+        const int forward[6] = {1, 0, 1, 1, 0, 1};
+        const int right[6] = {-1, 0, 1, 1, 0, -1};
+        const int up[6] = {0, -1, 0, 0, 1, 0};
+        const int yaw[6] = {-1, 0, -1, 1, 0, 1};
+        const int roll[6] = {0, -1, 0, 0, -1, 0};
         double input[6] = { 0 };
         float output[6] = { 0 };
         bool val[17] = { 0 };
