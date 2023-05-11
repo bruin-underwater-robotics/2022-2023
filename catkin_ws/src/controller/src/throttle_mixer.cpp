@@ -5,19 +5,19 @@ Throttle_mixer::Throttle_mixer()
     ros::NodeHandle nh;
     ros::NodeHandle nh_priv("~");
 
-    nh_priv.param<double>("x_rate", x_rate_, 1.0);
-    nh_priv.param<double>("y_rate", y_rate_, 1.0);
-    nh_priv.param<double>("z_rate", z_rate_, 1.0);
-    nh_priv.param<double>("x_expo", x_expo_, 1.0);
-    nh_priv.param<double>("y_expo", y_expo_, 1.0);
-    nh_priv.param<double>("z_expo", z_expo_, 1.0);
+    nh_priv.param<float>("x_rate", x_rate_, 1.0);
+    nh_priv.param<float>("y_rate", y_rate_, 1.0);
+    nh_priv.param<float>("z_rate", z_rate_, 1.0);
+    nh_priv.param<float>("x_expo", x_expo_, 1.0);
+    nh_priv.param<float>("y_expo", y_expo_, 1.0);
+    nh_priv.param<float>("z_expo", z_expo_, 1.0);
 
-    nh_priv.param<double>("pitch_rate", pitch_rate_, 1.0);
-    nh_priv.param<double>("roll_rate", roll_rate_, 1.0);
-    nh_priv.param<double>("yaw_rate", yaw_rate_, 1.0);
-    nh_priv.param<double>("pitch_expo", pitch_expo_, 1.0);
-    nh_priv.param<double>("roll_expo", roll_expo_, 1.0);
-    nh_priv.param<double>("yaw_expo", yaw_expo_, 1.0);
+    nh_priv.param<float>("pitch_rate", pitch_rate_, 1.0);
+    nh_priv.param<float>("roll_rate", roll_rate_, 1.0);
+    nh_priv.param<float>("yaw_rate", yaw_rate_, 1.0);
+    nh_priv.param<float>("pitch_expo", pitch_expo_, 1.0);
+    nh_priv.param<float>("roll_expo", roll_expo_, 1.0);
+    nh_priv.param<float>("yaw_expo", yaw_expo_, 1.0);
 
     nh_priv.param<bool>("reset", reset_, false);
 
@@ -31,9 +31,9 @@ Throttle_mixer::Throttle_mixer()
     config_server.setCallback(f);
 }
 
-double Throttle_mixer::rateCalc(const double input, const double rate, const double expo)
+float Throttle_mixer::rateCalc(const float input, const float rate, const float expo)
 {
-    double y;
+    float y;
     if (input < 0)
     {
         y = -rate * pow(-input, expo);
@@ -95,31 +95,39 @@ void Throttle_mixer::joyCallBack(const sensor_msgs::Joy::ConstPtr &joy_msg)
     msg.buttons.clear();
     for (int i = 0; i < 17; i++)
     {
-        // State Calculations
-        if (joy_msg->buttons[i] == 0)
+        switch (i)
         {
-            prev_state[i] = true;
-        }
-        else if (joy_msg->buttons[i] == 1 && prev_state[i] == true)
-        {
-            prev_state[i] = false;
-            val[i] = 1 - val[i];
-
-            // Speed multiplier calc
-            if (i == 5)
+        case 6:
+            // rotation lock
+            if (joy_msg->buttons[i] == 1)
+                rotation_enable = 0;
+            else
+                rotation_enable = 1;
+            break;
+        default:
+            // State Calculations
+            if (joy_msg->buttons[i] == 0)
+                prev_state[i] = true;
+            // State Change
+            else if (prev_state[i] == true)
             {
-                multiplier = multiplier + 0.1;
-                if (multiplier >= 1)
+                prev_state[i] = false;
+                val[i] = 1 - val[i];
+                // Special cases for toggle buttons
+                switch (i)
                 {
-                    multiplier = 1;
-                }
-            }
-            else if (i == 4)
-            {
-                multiplier = multiplier - 0.1;
-                if (multiplier <= 0.1)
-                {
-                    multiplier = 0.1;
+                case 4:
+                    // speed multiplier decrease
+                    multiplier = multiplier - 0.1;
+                    if (multiplier <= 0.1)
+                        multiplier = 0.1;
+                    break;
+                case 5:
+                    // speed multiplier increase
+                    multiplier = multiplier + 0.1;
+                    if (multiplier >= 1)
+                        multiplier = 1;
+                    break;
                 }
             }
         }
@@ -141,9 +149,9 @@ void Throttle_mixer::cmd_velCallback(const geometry_msgs::Twist::ConstPtr &twist
         twist_msg->angular.y,
         twist_msg->angular.z,
     };
-    double calc[6] = {0};
-    double rate[6] = {x_rate_, y_rate_, z_rate_, pitch_rate_, roll_rate_, yaw_rate_};
-    double expo[6] = {x_expo_, y_expo_, z_expo_, pitch_expo_, roll_expo_, yaw_expo_};
+    float calc[6] = {0};
+    float rate[6] = {x_rate_, y_rate_, z_rate_, pitch_rate_, roll_rate_, yaw_rate_};
+    float expo[6] = {x_expo_, y_expo_, z_expo_, pitch_expo_, roll_expo_, yaw_expo_};
 
     for (int i = 0; i < 6; i++)
     {
@@ -154,7 +162,7 @@ void Throttle_mixer::cmd_velCallback(const geometry_msgs::Twist::ConstPtr &twist
     {
         // amount of power to thruster i
         output[i] = calc[0] * forward[i] + calc[1] * right[i] +
-                    calc[2] * up[i] + calc[4] * roll[i] + calc[5] * yaw[i];
+                    calc[2] * up[i] + calc[4] * roll[i] + rotation_enable * calc[5] * yaw[i];
         // No calc[3] because we dont have pitch
         if (output[i] != 0)
         {

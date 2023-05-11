@@ -69,6 +69,8 @@ include_directories(include
 )
 
 add_executable(throttle_mixer src/throttle_mixer.cpp)
-# add_dependencies(throttle_mixer ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+add_executable(joy_repub src/joy_repub.cpp)
+add_dependencies(joy_repub ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 add_dependencies(throttle_mixer ${PROJECT_NAME}_gencfg)
 target_link_libraries(throttle_mixer ${catkin_LIBRARIES})
+target_link_libraries(joy_repub ${catkin_LIBRARIES})

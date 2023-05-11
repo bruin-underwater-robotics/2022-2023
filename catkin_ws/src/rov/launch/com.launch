@@ -19,6 +19,9 @@
     <param name="in" value="/cam3/image_raw"/>
     <param name="out" value="/cam3_republish"/>
 </node>
+<!-- Controller Parameters -->
+<node name="dynamic_reconfigure_load" pkg="dynamic_reconfigure" type="dynparam" 
+args="load /throttle_mixer $(find controller)/params/parameters.yaml" />
 <!-- rqt GUI -->
 <node name="rqt_gui1" pkg="rqt_gui" type="rqt_gui" respawn="false" output = "screen"
 args = "--perspective-file $(find rov)/rqt_config/no_imu.perspective"/>

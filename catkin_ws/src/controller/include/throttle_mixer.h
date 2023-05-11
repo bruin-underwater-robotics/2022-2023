@@ -20,7 +20,7 @@ class Throttle_mixer{
         void cmd_velCallback(const geometry_msgs::Twist::ConstPtr& joy_msg);
         void joyCallBack(const sensor_msgs::Joy::ConstPtr& twist_msg);
         void reconfigureCallback(controller::ControllerConfig& config, uint32_t level);
-        double rateCalc(const double input, const double rate, const double expo);
+        float rateCalc(const float input, const float rate, const float expo);
         rov::cmd_thruster msg;
         std_msgs::Float32 speed_msg;
         ros::NodeHandle nh;
@@ -43,14 +43,14 @@ class Throttle_mixer{
         const int up[6] = {0, -1, 0, 0, 1, 0};
         const int yaw[6] = {-1, 0, -1, 1, 0, 1};
         const int roll[6] = {0, -1, 0, 0, -1, 0};
-        double input[6] = { 0 };
         float output[6] = { 0 };
         bool val[17] = { 0 };
         bool prev_state[17] = { 0 };
-        double multiplier = 0.5;
+        float multiplier = 0.5;
+        bool rotation_enable = 1;
 
-        double x_rate_, y_rate_, z_rate_, pitch_rate_, roll_rate_, yaw_rate_;
-        double x_expo_, y_expo_, z_expo_, pitch_expo_, roll_expo_, yaw_expo_;
+        float x_rate_, y_rate_, z_rate_, pitch_rate_, roll_rate_, yaw_rate_;
+        float x_expo_, y_expo_, z_expo_, pitch_expo_, roll_expo_, yaw_expo_;
         bool reset_ = false;
 };  
 
