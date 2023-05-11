@@ -1,0 +1,18 @@
+\subsubsection parameters ROS parameters
+
+Reads and maintains the following parameters on the ROS server
+
+- \b "~x_rate" : \b [double] x rate min: 0.5, default: 0.1, max: 5.0
+- \b "~y_rate" : \b [double] y rate min: 0.5, default: 0.1, max: 5.0
+- \b "~z_rate" : \b [double] z rate min: 0.5, default: 0.1, max: 5.0
+- \b "~x_expo" : \b [double] x expo min: 0.5, default: 0.1, max: 5.0
+- \b "~y_expo" : \b [double] y expo min: 0.5, default: 0.1, max: 5.0
+- \b "~z_expo" : \b [double] z expo min: 0.5, default: 0.1, max: 5.0
+- \b "~pitch_rate" : \b [double] pitch rate min: 0.5, default: 0.1, max: 5.0
+- \b "~roll_rate" : \b [double] roll rate min: 0.5, default: 0.1, max: 5.0
+- \b "~yaw_rate" : \b [double] yaw rate min: 0.5, default: 0.1, max: 5.0
+- \b "~pitch_expo" : \b [double] pitch expo min: 0.5, default: 0.1, max: 5.0
+- \b "~roll_expo" : \b [double] roll expo min: 0.5, default: 0.1, max: 5.0
+- \b "~yaw_expo" : \b [double] yaw expo min: 0.5, default: 0.1, max: 5.0
+- \b "~reset" : \b [bool] reset all values to default min: False, default: True, max: True
+

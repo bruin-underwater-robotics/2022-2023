@@ -1,0 +1,8 @@
+prefix=/home/goopbloop/BUR-2022-2023/catkin_ws/devel
+
+Name: controller
+Description: Description of controller
+Version: 0.0.0
+Cflags: -I/home/goopbloop/BUR-2022-2023/catkin_ws/devel/include -I/home/goopbloop/BUR-2022-2023/catkin_ws/src/controller/include
+Libs: -L${prefix}/lib 
+Requires: roscpp std_msgs message_runtime dynamic_reconfigure

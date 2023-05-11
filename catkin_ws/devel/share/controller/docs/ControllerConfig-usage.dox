@@ -1,0 +1,19 @@
+\subsubsection usage Usage
+\verbatim
+<node name="controller" pkg="controller" type="controller">
+  <param name="x_rate" type="double" value="0.1" />
+  <param name="y_rate" type="double" value="0.1" />
+  <param name="z_rate" type="double" value="0.1" />
+  <param name="x_expo" type="double" value="0.1" />
+  <param name="y_expo" type="double" value="0.1" />
+  <param name="z_expo" type="double" value="0.1" />
+  <param name="pitch_rate" type="double" value="0.1" />
+  <param name="roll_rate" type="double" value="0.1" />
+  <param name="yaw_rate" type="double" value="0.1" />
+  <param name="pitch_expo" type="double" value="0.1" />
+  <param name="roll_expo" type="double" value="0.1" />
+  <param name="yaw_expo" type="double" value="0.1" />
+  <param name="reset" type="bool" value="True" />
+</node>
+\endverbatim
+

@@ -1,0 +1,8 @@
+prefix=/home/goopbloop/BUR-2022-2023/catkin_ws/install
+
+Name: teleop_twist_joy
+Description: Description of teleop_twist_joy
+Version: 0.1.3
+Cflags: -I${prefix}/include
+Libs: -L${prefix}/lib -lteleop_twist_joy
+Requires: geometry_msgs roscpp sensor_msgs

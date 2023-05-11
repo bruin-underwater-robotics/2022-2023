@@ -1,0 +1,2 @@
+controller:cv_camera:joy:pid:rov:teleop_twist_joy
+-DCATKIN_DEVEL_PREFIX=/home/goopbloop/BUR-2022-2023/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/home/goopbloop/BUR-2022-2023/catkin_ws/install -G Unix Makefiles

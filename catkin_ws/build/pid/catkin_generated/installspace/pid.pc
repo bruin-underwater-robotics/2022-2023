@@ -1,0 +1,8 @@
+prefix=/home/goopbloop/BUR-2022-2023/catkin_ws/install
+
+Name: pid
+Description: Description of pid
+Version: 0.0.28
+Cflags: -I${prefix}/include
+Libs: -L${prefix}/lib 
+Requires: roscpp std_msgs message_runtime dynamic_reconfigure
